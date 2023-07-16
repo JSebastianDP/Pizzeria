@@ -17,7 +17,6 @@
     <div class="container-fluid py-5">
       <h1 class="display-5 fw-bold">Bienvenido al Sistema</h1>
       <p class="col-md-8 fs-4">Usuario: ${correo}</p>
-      <button class="btn btn-primary btn-lg" type="button">Comprar ahora</button>
     </div>
      </div>
     </body>

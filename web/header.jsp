@@ -44,19 +44,14 @@
             <a class="nav-link" href="">Usuarios</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Pizza</a>
+            <a class="nav-link" href="./ControladorProductos?accion=Nuevo">Pizzas </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href=""></a>
-        </li>
-        <li class="nav-item">
-           <center>
             <form method="POST" action="${pageContext.request.contextPath}/Sesiones">
                             <li class="nav-item">
                                 <input type="submit" class="nav-link btn btn-primary ms-1" value="Cerrar sesi&#243;n">  
                             </li>
             </form> 
-            </center>
         </li>
     </ul>
 </nav>
