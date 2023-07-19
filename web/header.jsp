@@ -1,4 +1,6 @@
 <%@include file = "Sesion/cache.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%-- 
     Document   : header
     Created on : 12/07/2023, 02:21:49 PM
@@ -46,14 +48,21 @@
         <li class="nav-item">
             <a class="nav-link" href="./ControladorProductos?accion=Nuevo">Pizzas </a>
         </li>
-        <li class="nav-item">
+           <li class="nav-item">
+            <a class="nav-link" href="./ControladorProductos?accion=Pagar">Pagar (${cont})</a>
+        <ul class="nav navbar-nav navbar-right">
+            
+        </ul>
+             </li>
+        <li class="nav navbar-nav navbar-right">
             <form method="POST" action="${pageContext.request.contextPath}/Sesiones">
-                            <li class="nav-item">
-                                <input type="submit" class="nav-link btn btn-primary ms-1" value="Cerrar sesi&#243;n">  
+                            <li class="nav navbar-nav navbar-right">
+                                <input type="submit" class="nav-link btn btn-primary " value="Cerrar sesi&#243;n">  
                             </li>
             </form> 
         </li>
     </ul>
+                            
 </nav>
     </body>
 </html>

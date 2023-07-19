@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+            <title>Sistema web de Pizzas</title>
     </head>
     <body>
       <div class="p-5 mb-4 bg-light rounded-3">

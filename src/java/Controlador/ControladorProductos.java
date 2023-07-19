@@ -42,7 +42,6 @@ public class ControladorProductos extends HttpServlet {
     int idpago;
     double montopagar;
     int id_producto = 0;
-    double descuento = 0.0;
     CarritoVO car = new CarritoVO();
     Fecha fechaSistem = new Fecha();
     
@@ -52,8 +51,7 @@ public class ControladorProductos extends HttpServlet {
         productos = pdao.Listar();
         String accion = request.getParameter("accion");
         switch (accion) {
-            case "carrito":
-                descuento = 0.0;
+            case "Pagar":
                 totalPagar = 0.0;
                 item = 0;
                 subtotal = 0;
@@ -63,14 +61,12 @@ public class ControladorProductos extends HttpServlet {
                     totalPagar = totalPagar + listaProductos.get(i).getSubTotal();
                     listaProductos.get(i).setItem(item + i + 1);
                     if (listaProductos.get(i).getItem() >= 10 || listaProductos.get(i).getCantidad() >= 10) {
-                        descuento = (totalPagar * 0.05);
-                        totalPagar = totalPagar - descuento;
+                        totalPagar = totalPagar - totalPagar;
                     }
                 }
                 request.setAttribute("subtotal", subtotal);
-                request.setAttribute("descuento", descuento);
                 request.setAttribute("totalPagar", totalPagar);
-                request.getRequestDispatcher("Carrito.jsp").forward(request, response);
+                request.getRequestDispatcher("Pagar.jsp").forward(request, response);
                 break;
                 
                   case "Comprar":
