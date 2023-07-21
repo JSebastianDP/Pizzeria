@@ -48,6 +48,9 @@
         <li class="nav-item">
             <a class="nav-link" href="./ControladorProductos?accion=Nuevo">Pizzas </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="./ControladorProductos?accion=Nuevo">Ingredientes</a>
+        </li>
            <li class="nav-item">
             <a class="nav-link" href="./ControladorProductos?accion=Pagar">Pagar (${cont})</a>
         <ul class="nav navbar-nav navbar-right">

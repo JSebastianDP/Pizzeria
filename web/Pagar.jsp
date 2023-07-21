@@ -1,3 +1,5 @@
+<%@page import="ModeloVO.IngredientesVO"%>
+<%@page import="ModeloDAO.IngredientesDAO"%>
 <%@page import="Util.Fecha"%>
 <%@include file = "header.jsp" %>
 <%-- 
@@ -25,7 +27,9 @@
                                 <th>Descripcion</th>
                                 <th>Precio</th>
                                 <th>Cantidad</th>                       
-                                <th>Precio Pizza x cantidad</th>                       
+                                <th>Precio Pizza x cantidad</th>  
+                                <th>Ingredientes</th>
+                                <th class="accion">Acciones</th>                       
                             </tr>
                         </thead>
                         <tbody>
@@ -40,10 +44,33 @@
                                     <td>        
                                         <input type="hidden" id="idpro" value="${c.getIdProducto()}">
                                         <input type="number" min="1"   id="Cantidad" class=" form-control text-center" value="${c.getCantidad()}">
-                                    </td>   
-                                    <td>${c.getSubTotal()}</td>                          
+                                    </td>
+                                    <td>${c.getSubTotal()}</td> 
+                                    <td>
+                                          <form method="post" action="ControladorIngredientes">
+                                            <table>
+                                                <select name="rol"  class="controls">
+                                                    <option>Seleccione</option>
+                                                    <% IngredientesDAO ingdao = new IngredientesDAO();
+                                                        for (IngredientesVO ingvo : ingdao.Ingredientes()) {
+                                                    %>
+
+
+                                                    <option value="<%=ingvo.getId_ingredientes()%>"><%=ingvo.getNombre_ingredientes()%></option>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </select>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                    <td class="text-center">                                         
+                                        <input type="hidden" id="item2" value="${c.getIdProducto()}">
+                                        <a id="deleteItem" href="#" class="btn">Borrar</a>                                            
+                                    </td> 
                                 </tr>
-                        </c:forEach>
+                            </c:forEach>
                         </tbody>
                     </table>                    
                 </div>
@@ -64,7 +91,7 @@
                 </div>
             </div>          
         </div>
-            <div class="modal fade" id="myModalPago" tabindex="-1" role="dialog">
+        <div class="modal fade" id="myModalPago" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">         
                 <div class="modal-content">                   
                     <div class="modal-header text-center"> 
@@ -101,5 +128,9 @@
                 </div>
             </div>
         </div>
+
+        <script src="js/funciones.js" type="text/javascript"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     </body>
 </html>

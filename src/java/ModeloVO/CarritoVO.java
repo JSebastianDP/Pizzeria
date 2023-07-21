@@ -12,6 +12,7 @@ package ModeloVO;
 public class CarritoVO {
     int item;
     int idProducto;
+    int id_ingrediente_fk;
     String nombres;
     double precioCompra;
     int cantidad;
@@ -19,11 +20,12 @@ public class CarritoVO {
     double subTotal;
 
     public CarritoVO() {
-    }
+    } 
 
-    public CarritoVO(int item, int idProducto, String nombres, double precioCompra, int cantidad, String imagen, double subTotal) {
+    public CarritoVO(int item, int idProducto, int id_ingrediente_fk, String nombres, double precioCompra, int cantidad, String imagen, double subTotal) {
         this.item = item;
         this.idProducto = idProducto;
+        this.id_ingrediente_fk = id_ingrediente_fk;
         this.nombres = nombres;
         this.precioCompra = precioCompra;
         this.cantidad = cantidad;
@@ -45,6 +47,14 @@ public class CarritoVO {
 
     public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public int getId_ingrediente_fk() {
+        return id_ingrediente_fk;
+    }
+
+    public void setId_ingrediente_fk(int id_ingrediente_fk) {
+        this.id_ingrediente_fk = id_ingrediente_fk;
     }
 
     public String getNombres() {
@@ -86,9 +96,5 @@ public class CarritoVO {
     public void setSubTotal(double subTotal) {
         this.subTotal = subTotal;
     }
-    
-    
-    
-    
     
 }

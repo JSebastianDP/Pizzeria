@@ -5,6 +5,7 @@
  */
 package ModeloDAO;
 
+import ModeloVO.IngredientesVO;
 import ModeloVO.ProductoVO;
 import Util.ConexionBD;
 import java.sql.Connection;
@@ -48,8 +49,6 @@ public class ProductoDAO extends ConexionBD{
         }
         return productos;
     }
-    
-    
        public ProductoVO listarId(int id) {
         ProductoVO p = new ProductoVO();
         String sql = "select * from producto where id_producto=" + id;

@@ -6,9 +6,11 @@
 package Controlador;
 
 import ModeloDAO.ProductoDAO;
+import ModeloDAO.VentaDAO;
 import ModeloVO.CarritoVO;
 import ModeloVO.ProductoVO;
 import ModeloVO.UsuarioVO;
+import ModeloVO.VentaVO;
 import Util.Fecha;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,6 +21,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -106,6 +109,16 @@ public class ControladorProductos extends HttpServlet {
                 request.setAttribute("cont", listaProductos.size());
                 request.setAttribute("productos", productos);
                 request.getRequestDispatcher("listarPizzas.jsp").forward(request, response);
+                
+                case "GenerarVenta":
+                HttpSession sesion = request.getSession();
+                UsuarioVO usuario = (UsuarioVO) sesion.getAttribute("UsuarioVO");
+                if (usuario != null) {
+                    VentaDAO venDAO = new VentaDAO();
+                    VentaVO venVO = new VentaVO(fechaSistem.FechaBD(), totalPagar,  usuario, listaProductos);
+                    int res = venDAO.GenerarVenta(venVO);
+                } 
+                break;
     }
         
         

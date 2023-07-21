@@ -5,30 +5,41 @@
  */
 package ModeloVO;
 
+import java.util.List;
+
 /**
  *
  * @author Sebastian Diaz
  */
 public class VentaVO {
-    String id_venta, fecha_venta, id_usuario_fk;
-    Double total_Venta;
+  
+    int id;
+    String fecha_venta;
+    Double total_venta;
+    int id_usuario_fk;
+    UsuarioVO usuarioVO;
+    List<CarritoVO> detalleventas;
+    private String action;
 
     public VentaVO() {
     }
 
-    public VentaVO(String id_venta, String fecha_venta, String id_usuario_fk, Double total_Venta) {
-        this.id_venta = id_venta;
+    public VentaVO(String fecha_venta, Double total_venta,UsuarioVO usuarioVO, List<CarritoVO> detalleventas) {
         this.fecha_venta = fecha_venta;
-        this.id_usuario_fk = id_usuario_fk;
-        this.total_Venta = total_Venta;
+        this.total_venta = total_venta;
+        this.usuarioVO = usuarioVO;
+        this.detalleventas = detalleventas;
+    }
+   public VentaVO(int id, String action) {
+        this.id = id;
+        this.action = action;
+    }
+    public int getId() {
+        return id;
     }
 
-    public String getId_venta() {
-        return id_venta;
-    }
-
-    public void setId_venta(String id_venta) {
-        this.id_venta = id_venta;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFecha_venta() {
@@ -39,20 +50,45 @@ public class VentaVO {
         this.fecha_venta = fecha_venta;
     }
 
-    public String getId_usuario_fk() {
+    public Double getTotal_venta() {
+        return total_venta;
+    }
+
+    public void setTotal_venta(Double total_venta) {
+        this.total_venta = total_venta;
+    }
+
+    public int getId_usuario_fk() {
         return id_usuario_fk;
     }
 
-    public void setId_usuario_fk(String id_usuario_fk) {
+    public void setId_usuario_fk(int id_usuario_fk) {
         this.id_usuario_fk = id_usuario_fk;
     }
 
-    public Double getTotal_Venta() {
-        return total_Venta;
+    public UsuarioVO getUsuarioVO() {
+        return usuarioVO;
     }
 
-    public void setTotal_Venta(Double total_Venta) {
-        this.total_Venta = total_Venta;
+    public void setUsuarioVO(UsuarioVO usuarioVO) {
+        this.usuarioVO = usuarioVO;
+    }
+
+    public List<CarritoVO> getDetalleventas() {
+        return detalleventas;
+    }
+
+    public void setDetalleventas(List<CarritoVO> detalleventas) {
+        this.detalleventas = detalleventas;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
     
+
 }
